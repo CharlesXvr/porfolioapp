@@ -38,6 +38,9 @@
     .menu {
         flex-direction: column;
     }
+    .menu .links a{
+        border: 0;
+    }
 }
 @media (max-width: 820px) { 
     .navmenu {
