@@ -1,5 +1,8 @@
-.hero {
+.content {
     background-color: #F5F5F5;
+}
+.user-card {
+    height: 40rem;
 }
 .user-card img {
     height: 20rem;
@@ -30,7 +33,28 @@
 .personal-info {
     width: 100%;
 }
+.line {
+    width: 100%;
+    height: .1rem;
+    background-color: #424242;
+}
+.work {
+    width: 95%;
+}
+.work article {
+    background-color: #E0E0E0;
+    border-radius: .5rem;
+    margin: 1rem 0;
+}
+.work .image img{
+    border-radius: .5rem;
+    width: 13rem;
+    height: 13rem;
+}
 @media (max-width: 912px) {
+    .user-card {
+        height: auto;
+    }
     .user-info {
         transform: translateY(-25%);
     }
@@ -40,7 +64,10 @@
     }
 
 }
-@media (min-width: 912px) and (max-width: 1024px) {
+@media (min-width: 912px) and (max-width: 1280px) {
+    .user-card {
+        height: 45rem;
+    }
     .user-info {
         transform: translateY(-45%);
     }
