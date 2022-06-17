@@ -1,0 +1,51 @@
+.hero {
+    background-color: #F5F5F5;
+}
+.user-card img {
+    height: 20rem;
+    width: 100%;
+}
+.user-info {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    transform: translateY(-55%);
+    max-width: fit-content;
+}
+.user-icon {
+    border-radius: 2rem !important;
+}
+.user-info .user-icon img {
+    max-width: 16rem;
+    height: 13rem;
+    border-radius: 1rem;
+}
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space;
+    width: 100%;
+}
+.personal-info {
+    width: 100%;
+}
+@media (max-width: 912px) {
+    .user-info {
+        transform: translateY(-25%);
+    }
+    .info {
+        flex-direction: column;
+        justify-content: none;
+    }
+
+}
+@media (min-width: 912px) and (max-width: 1024px) {
+    .user-info {
+        transform: translateY(-45%);
+    }
+    .about-me {
+        width: 100%;
+    }
+
+}
