@@ -1,0 +1,86 @@
+<div class="container">
+
+    <div class="card o-hidden shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-lg-block bg-register-image">
+                </div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">¡Crear una cuenta!</h1>
+                        </div>
+                        <form (ngSubmit)="onSubmit()" class="user">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user"
+                                        id="txtName"
+                                        placeholder="Nombre"
+                                        [(ngModel)]="user.nombre"
+                                        name="nombre"
+                                       >
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user"
+                                        id="txtLastName"
+                                        placeholder="Apellido"
+                                        [(ngModel)]="user.apellido"
+                                        name="apellido"
+                                        >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-user"
+                                    id="txtEmail"
+                                    placeholder="Email"
+                                    [(ngModel)]="user.email"
+                                    name="email"
+                                    >
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control form-control-user"
+                                    id="intPhone"
+                                    placeholder="Celular"
+                                    [(ngModel)]="user.telefono"
+                                    name="telefono"
+                                    >
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user"
+                                        id="txtPassword" placeholder="Contraseña" 
+                                        [(ngModel)]="user.password"
+                                        name="contrasena"
+                                        >
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control form-control-user"
+                                        id="txtPasswordRepeat" placeholder="Repetir contraseña"
+                                        [(ngModel)]="user.password"
+                                        name="repeatContrasena"
+                                        >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthday">Fecha de nacimiento:</label>
+                                <input type="date" id="birthday" name="birthday"
+                                [(ngModel)]="user.birthday"
+                                >
+                            </div>
+                            <p class="text-muted">
+                                La información de estos campos núnca será compartida y sólo será utilizada para el correcto funcionamiento de la aplicación.
+                            </p>
+                            <div class="form-group row button">
+                                <button class="btn btn-primary btn-user py-3">Registrar cuenta</button>
+                            </div>
+                        </form>
+                        <div class="text-center py-4">
+                            <a class="small" [routerLink]="['/login']">¿Ya tienes una cuenta? ¡Ingresa!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

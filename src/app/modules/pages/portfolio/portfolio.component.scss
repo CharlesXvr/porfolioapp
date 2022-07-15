@@ -1,3 +1,4 @@
+
 .content {
     background-color: #F5F5F5;
 }
@@ -38,19 +39,67 @@
     height: .1rem;
     background-color: #424242;
 }
-.work {
+.work, .education {
     width: 95%;
 }
-.work article {
+.work article, .education article {
     background-color: #E0E0E0;
     border-radius: .5rem;
     margin: 1rem 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
-.work .image img{
-    border-radius: .5rem;
+.work .image, .education .image {
     width: 13rem;
     height: 13rem;
 }
+.work .image img, .education .image img{
+    border-radius: .5rem;
+    width: 100%;
+    height: 98%;
+    margin: 0 0;
+}
+.skills {
+    margin: 0 3rem;
+}
+.skill {
+    background-color: #E0E0E0;
+    position: relative;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.progress {
+    height: 1.5rem;
+}
+.progress-bar {
+    border-radius: .3rem;
+}
+.projects {
+    display: flex;
+    padding: 2rem 4rem !important;
+    margin: 0 1rem ;
+}
+.project {
+    padding: 1rem;
+    width: 5rem;
+    border-radius: 1rem;
+}
+
+.project .project-preview img{
+    width: 100%;
+    height: 15rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.project-info {
+    padding: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: #E0E0E0;
+}
+
 @media (max-width: 912px) {
     .user-card {
         height: auto;
@@ -62,9 +111,39 @@
         flex-direction: column;
         justify-content: none;
     }
+    .work .image , .education .image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+    }
+    .work .image img, .education .image img{
+        margin: 1rem;
+    }
+    .work article, .education article {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .skills {
+        padding: 0;
+        margin: 0;
+    }
+    .projects {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 1rem !important;
+        width: 100%;
+    }
+    .project {
+        width: 100%;
+        margin: 0;
+    }
+    
 
 }
 @media (min-width: 912px) and (max-width: 1280px) {
+    
     .user-card {
         height: 45rem;
     }

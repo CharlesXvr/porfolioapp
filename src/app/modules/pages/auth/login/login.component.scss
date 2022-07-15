@@ -1,9 +1,8 @@
-.login {
-    width: fit-content;
-    background: #F5F5F5;
-    border-radius: 1rem;
-    justify-content: center;
+.bg-login-image {
+    background-image: url("https://www.infozona.com.ar/wp-content/uploads/2021/08/Argentina-programa.jpeg");
+    background-size: cover;
 }
-.logo img {
-    border-radius: .5rem;
+
+input {
+    margin: 1rem 0;
 }

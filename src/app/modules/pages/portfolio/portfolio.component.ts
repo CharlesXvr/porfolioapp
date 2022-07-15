@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
-
+  number:number= 50;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  saleData = [
+    { name: "Mobiles", value: 50 },
+
+  ];
 
 }

@@ -1,0 +1,21 @@
+.bg-register-image {
+    border-radius: .5rem 0 0 .5rem;
+    background-image: url("https://www.argentina.gob.ar/sites/default/files/2021/07/2021_07_argentina-programa_jumbotron-1_1.jpg");
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+.bg-register-image::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .2;
+    z-index: -1;
+}
+input {
+    margin: 1rem 0;
+}
