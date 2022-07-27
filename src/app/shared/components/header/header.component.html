@@ -15,7 +15,7 @@
             <div class="menu d-flex align-items-center">
                 <div class="links col">
                     <a [routerLink]="['/home']" class="px-2">Inicio</a>
-                    <a [routerLink]="['/notFound']" class="px-2">Más</a>
+                    <a *ngIf="isLogged && isAdmin"  [routerLink]="['/users']" class="px-2">Users</a>
                 </div>
                 <div class="btns d-flex align-items-center justify-content-between">
                     <!-- 
@@ -28,7 +28,9 @@
                     <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-instagram "></i>
                     <i class="fab fa-linkedin-in"></i>
-                    <a [routerLink]="['/login']"><button type="button" class="btn btn-success">Login</button> </a>
+                    <a *ngIf="!isLogged" [routerLink]="['/login']"><button type="button" class="btn btn-success">Login</button> </a>
+                    <a *ngIf="isLogged" (click)="onLogOut()" [routerLink]="['/']"><button type="button" class="btn btn-danger">Cerrar Sesión</button> </a>
+
                 </div>
             </div>
 

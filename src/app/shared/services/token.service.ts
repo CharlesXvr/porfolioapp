@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Users } from '../clases/users';
 
 const TOKEN_KEY = 'AuthToken';
 const EMAIL_KEY = 'AuthEmail';
 const AUTH_KEY = 'AuthAuthorities';
-
+const USER = 'user'
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
   roles:Array<String> = [];
+  users:Array<String> = [];
+
 
   constructor() { }
 
@@ -33,7 +36,6 @@ export class TokenService {
     window.sessionStorage.removeItem(AUTH_KEY);
     window.sessionStorage.setItem(AUTH_KEY, JSON.stringify(authorities));
   }
-
   public getAuthorities(): String[] {
     this.roles = [];
     if (sessionStorage.getItem(AUTH_KEY)) {
@@ -43,6 +45,20 @@ export class TokenService {
     }
     return this.roles;
   }
+  public setCurrentUserInfo(user: string[]):void {
+    window.sessionStorage.removeItem(USER);
+    window.sessionStorage.setItem(USER, JSON.stringify(user));
+  }
+  public getCurrentUserInfo(): String[] {
+    this.users = [];
+    if (sessionStorage.getItem(USER)) {
+      JSON.parse(sessionStorage.getItem(USER)!).forEach(user => {
+        this.users.push(user.user);
+      });
+    }
+    return this.users;
+  }
+
 
   public logOut(): void {
     window.sessionStorage.clear();

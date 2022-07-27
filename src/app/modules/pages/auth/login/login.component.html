@@ -35,11 +35,11 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="txtPassword" placeholder="Contraseña" name="password"
+                                                id="password" placeholder="Contraseña" name="password"
                                                 [(ngModel)]="password"
                                                 required>
                                         </div>
-                                        <button [disabled]="!f.valid"  [routerLink]="['/portfolio']" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" [disabled]="!f.valid"  class="btn btn-primary btn-user btn-block">
                                             Ingresar
                                         </button>
                                         <hr>

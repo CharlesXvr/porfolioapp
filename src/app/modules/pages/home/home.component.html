@@ -4,10 +4,13 @@
     </div>
     <div class="hero-text">
       <h1>¡Bienvenido a tu portfolio!</h1>
-      <p>En este lugar podrás gestionar la informacion que especta a tu actividad laboral y educativa, tanto como personal, para facilitar la creación de un lugar donde puedas cargar la información correspondiente a tu curriculum.</p>
-      <a  [routerLink]="['/portfolio']" class="btn btn-outline-primary btn-block">
-        Ingresar
-    </a>
+      <p *ngIf="!isLogged">En este lugar podrás gestionar la informacion que especta a tu actividad laboral y educativa, tanto como personal, para facilitar la creación de un lugar donde puedas cargar la información correspondiente a tu curriculum.</p>
+      <a *ngIf="!isLogged" [routerLink]="['/login']"><button type="button" class="btn btn-outline-primary btn-block">Inicia Sesión</button> </a>
+      <p *ngIf="!isLogged" class="text-center text-muted">o</p>
+      <a *ngIf="!isLogged" [routerLink]="['/register']"><button type="button" class="btn btn-outline-primary btn-block">Crea tu cuenta</button> </a>
+      <a *ngIf="isLogged" [routerLink]="['/portfolio']" class="btn btn-outline-primary btn-block">
+        IR AL PORTFOLIO
+      </a>
     </div>
   </div>
 

@@ -35,17 +35,14 @@
     height: fit-content;
     color: aliceblue;
     position: absolute;
-    top: 5rem;
+    top: 0;
     left: 5rem;
     z-index: 1;
-}
-.hero-text > * {
-    margin: 2rem 0;
 }
 .btn-outline-primary {
     font-size: 1rem;
     font-weight: bolder;
-    margin: 0 !important;
+    margin: 1rem 0 !important;
     padding: .5rem;
     width: 100%;
 }

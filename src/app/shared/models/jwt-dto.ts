@@ -3,4 +3,6 @@ export class JwtDTO {
     type: string;
     email: string;
     authorities: string[];
+    user: string[];
+
 }

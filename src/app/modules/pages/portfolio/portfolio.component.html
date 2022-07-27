@@ -16,10 +16,11 @@
 
             <div class="info">
                 <div class="personal-info p-2">
-                    <h2>Carlos Matias Olivera</h2>
-                    <p>user@gmail.com</p>
-                    <p>351638770</p>
-                    <p>Unquillo, Cordoba</p>
+                    <h2>{{currentUser.nombre + " " + currentUser.apellido}} </h2>
+                    <p>Email: {{currentUser.email}}</p>
+                    <p>Telefono {{currentUser.telefono}}</p>
+                    <p>Fecha de nacimiento: {{currentUser.birthday}} </p>
+                    <p *ngFor="let location of currentUser.statesTownships">Lugar de residencia {{location.township.township + ", " + location.state.state}} </p>
                 </div>
                 <div class="p-2 about-me">
                     <h2>Sobre Mi</h2>
@@ -83,35 +84,15 @@
 
     <section class="education container-fluid">
         <div class="row p-4">
-            <h1>Educación</h1>
-            <article class="row p-4">
-                <div class="image col-2">
-                    <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/6/67/UTN_logo.jpg" 
-                    alt=""
-                    class="img">    
-                </div>
-                <div class="stablishment-info col">
-                    <h2>Tecnico Superior en Programacion</h2>
-                    <p>Universidad Tecnológica Nacional</p>
-                    <p>2020-2022</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
-                </div>
-            </article>
-            <article class="row p-4">
-                <div class="image col-2">
-                    <img
-                    src="https://play-lh.googleusercontent.com/xD78B_Wcf9q5iWhKIQS8n1NwdfkVFDJjjUubkcd6rHaiHpOYmFVMoeQ5hbomDGekvhQ" 
-                    alt=""
-                    class="img">    
-                </div>
-                <div class="stablishment-info col">
-                    <h2>FullStack Developer Jr</h2>
-                    <p>DigitalHouse</p>
-                    <p>2022-2022</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
-                </div>
-            </article>
+            <div class="title">
+                <h1>Educación</h1>
+                <button (click)="onPress()" class="btn btn-primary btn-sm " type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i>Añadir</button>
+            </div>
+            <div *ngIf="displayAddEducationItem" class="addEdItem">
+                <app-add-education></app-add-education>
+            </div>
+            <app-education-card></app-education-card>
+
         </div>
     </section>
 
@@ -119,12 +100,12 @@
 
     <section class="skills row p-4 d-flex">
         <h1>Habilidades</h1>
-        <div class="skill col">
-            <h2>Javascript</h2>
+        <article class="skill col bg-primary">
+            <h2 class="text-light">Inglés</h2>
             <div class="progress-bar my-4">
                 <div class="progress">
                     <div
-                    class="progress-bar"
+                    class="progress-bar bg-warning"
                     role="progressbar"
                     [style.width.%]="number"
                     aria-valuenow="number"
@@ -135,16 +116,13 @@
                     </div>
                 </div>
             </div>
-            <div class="skill-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
-            </div>
-        </div>
-        <div class="skill col">
-            <h2>HTML</h2>
+        </article>
+        <article class="skill col bg-primary">
+            <h2 class="text-light">Inglés</h2>
             <div class="progress-bar my-4">
                 <div class="progress">
                     <div
-                    class="progress-bar"
+                    class="progress-bar bg-warning"
                     role="progressbar"
                     [style.width.%]="number"
                     aria-valuenow="number"
@@ -155,16 +133,13 @@
                     </div>
                 </div>
             </div>
-            <div class="skill-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
-            </div>
-        </div>
-        <div class="skill col">
-            <h2>CSS</h2>
+        </article>
+        <article class="skill col bg-primary">
+            <h2 class="text-light">Inglés</h2>
             <div class="progress-bar my-4">
                 <div class="progress">
                     <div
-                    class="progress-bar"
+                    class="progress-bar bg-warning"
                     role="progressbar"
                     [style.width.%]="number"
                     aria-valuenow="number"
@@ -175,16 +150,13 @@
                     </div>
                 </div>
             </div>
-            <div class="skill-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
-            </div>
-        </div>
-        <div class="skill col">
-            <h2>Angular</h2>
+        </article>
+        <article class="skill col bg-primary">
+            <h2 class="text-light">Inglés</h2>
             <div class="progress-bar my-4">
                 <div class="progress">
                     <div
-                    class="progress-bar"
+                    class="progress-bar bg-warning"
                     role="progressbar"
                     [style.width.%]="number"
                     aria-valuenow="number"
@@ -195,16 +167,13 @@
                     </div>
                 </div>
             </div>
-            <div class="skill-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
-            </div>
-        </div>
-        <article class="skill col">
-            <h2>Inglés</h2>
+        </article>
+        <article class="skill col bg-primary">
+            <h2 class="text-light">Inglés</h2>
             <div class="progress-bar my-4">
                 <div class="progress">
                     <div
-                    class="progress-bar"
+                    class="progress-bar bg-warning"
                     role="progressbar"
                     [style.width.%]="number"
                     aria-valuenow="number"
@@ -214,9 +183,6 @@
                     {{number}}%
                     </div>
                 </div>
-            </div>
-            <div class="skill-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
             </div>
         </article>
                 

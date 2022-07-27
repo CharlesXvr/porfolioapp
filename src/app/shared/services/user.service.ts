@@ -8,13 +8,13 @@ import { Users } from '../clases/users';
 })
 export class UserService {
 
-  private baseUrl = "http://localhost:8080/api/v1/users";
+  private baseUrl = "http://localhost:8080/auth/lista";
 
   constructor(private httpClient : HttpClient) {
 
    }
    //ESTE METODO SE COMUNICA CON EL BACK 
-   getUsersList():Observable<Users[]>{
+   public getUsersList():Observable<Users[]>{
     return this.httpClient.get<Users[]>(`${this.baseUrl}`);
    }
    addUser(user:Users) : Observable<Object> {
