@@ -10,7 +10,7 @@ import { NewUser } from '../models/new-user';
 })
 export class AuthService {
 
-  authUrl = 'http://localhost:8080/auth/';
+  authUrl = 'https://pacific-retreat-26374.herokuapp.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 

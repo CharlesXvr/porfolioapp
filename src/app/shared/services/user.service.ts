@@ -8,7 +8,7 @@ import { Users } from '../clases/users';
 })
 export class UserService {
 
-  private baseUrl = "http://localhost:8080/auth/lista";
+  private baseUrl = "https://pacific-retreat-26374.herokuapp.com/auth/lista";
 
   constructor(private httpClient : HttpClient) {
 
