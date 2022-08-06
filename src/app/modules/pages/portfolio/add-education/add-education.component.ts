@@ -16,9 +16,7 @@ export class AddEducationComponent implements OnInit {
   descripcion = '';
   institute = '';
   userInfo = JSON.parse(sessionStorage.getItem('user')!);
-  institutes:any = [{
-    id:0, institute: "Selecciona un instituto"
-  }];
+  institutes:any;
   user = this.userInfo.id
   selectedItem;
   constructor(private userInstituteService: EducationServiceService, private toastr:ToastrService, private router: Router) { }

@@ -18,9 +18,7 @@ export class AddProfessionComponent implements OnInit {
   descripcion = '';
   company = '';
   userInfo = JSON.parse(sessionStorage.getItem('user')!);
-  companies:any = [{
-    id:0, company: "Selecciona una empresa"
-  }];
+  companies:any
   user = this.userInfo.id
   selectedItem;
   since:Date;

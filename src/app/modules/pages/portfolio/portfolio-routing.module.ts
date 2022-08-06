@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'addProfessions', loadChildren: () => import('./add-profession/add-profession.module').then(m => m.AddProfessionModule) },
   { path: 'editProjects/:id', loadChildren: () => import('./edit-projects/edit-projects.module').then(m => m.EditProjectsModule) },
   { path: 'addProjects', loadChildren: () => import('./add-projects/add-projects.module').then(m => m.AddProjectsModule) },
+  { path: 'editUser/:id', loadChildren: () => import('./edit-user/edit-user.module').then(m => m.EditUserModule) },
   
 ];
 

@@ -36,7 +36,6 @@ export class PortfolioComponent implements OnInit {
     this.getUserInstitutes();
     this.getProfessions();
     this.getProjects();
-    console.log(this.userInfo.about)
   }
 
   saleData = [
@@ -52,6 +51,8 @@ export class PortfolioComponent implements OnInit {
             this.currentUser = i;
           }
         }
+        console.log(this.currentUser);
+
       },
       err => {
         console.log(err);
@@ -65,7 +66,7 @@ export class PortfolioComponent implements OnInit {
       var result = items.filter(obj => {
         // Returns the object where
         // the given property has some value 
-          return obj.usuario.id === this.currentUser.id
+          return obj.usuario.id === this.userInfo.id
       })
       this.userInstitutes = result;
     });
@@ -79,7 +80,7 @@ export class PortfolioComponent implements OnInit {
         var result = items.filter(obj => {
           // Returns the object where
           // the given property has some value 
-            return obj.usuario.id === this.currentUser.id
+            return obj.usuario.id === this.userInfo.id
         })
         this.professions = result;
       }
@@ -90,14 +91,11 @@ export class PortfolioComponent implements OnInit {
     .subscribe(items => {
       // You can use the arrow function expression:
       var result = items.filter(obj => {
-        console.log("algo")
-        console.log(this.currentUser.id)
         // Returns the object where
         // the given property has some value 
-          return obj.usuario.id === this.currentUser.id
+          return obj.usuario.id === this.userInfo.id
       })
       this.projects = result;
-      console.log(this.projects);
     });
   }
   onDeleteProject(id:number) {

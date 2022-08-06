@@ -24,10 +24,10 @@
                 <div class="py-2 about-me">
                     <div class="title d-flex align-content-center justify-content-between py-2">
                         <h2>Sobre Mi</h2>
-                        <button routerLink="editProfessions/1" class="btn btn-success btn-sm " type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>    
+                        <button routerLink="editUser/{{currentUser.id}}" class="btn btn-success btn-sm " type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>    
                     </div>
-                    <p *ngIf="!userInfo.about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
-                    <p *ngIf="userInfo.about"> {{userInfo.about}} </p>
+                    <p *ngIf="!currentUser.about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat magna sed efficitur volutpat. Mauris imperdiet metus sed neque maximus dapibus. Morbi mollis eros nec nisl dictum, in ullamcorper elit imperdiet. Etiam vulputate non enim vel imperdiet. Quisque hendrerit tempus turpis, sed tempor eros rutrum sed. Phasellus in laoreet purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sit amet sollicitudin felis.</p>
+                    <p *ngIf="currentUser.about"> {{currentUser.about}} </p>
                 </div>  
             </div>
         </div>
