@@ -17,6 +17,7 @@
                                         placeholder="Nombre del proyecto"
                                         [(ngModel)]="projectName"
                                         name="pName"
+                                        required
                                        >
                                 </div>
                                 <div class="col">
@@ -25,6 +26,7 @@
                                         placeholder="Descripcion del Proyecto"
                                         [(ngModel)]="descripcion"
                                         name="pDescripcion"
+                                        required
                                         >
                                 </div>
                                 <div class="col">
@@ -33,11 +35,12 @@
                                     placeholder="URL al repositorio"
                                     [(ngModel)]="repositoryUrl"
                                     name="pDescripcion"
+                                    required
                                     >
                                 </div>
                             </div>
                             <div class="form-group row button w-25 my-2">
-                                <button class="btn btn-success btn-user py-3">Añadir Proyecto</button>
+                                <button [disabled]="!f.valid" class="btn btn-success btn-user py-3">Añadir Proyecto</button>
                             </div>
                         </form>
                     </div>

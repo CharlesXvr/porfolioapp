@@ -17,6 +17,7 @@
                                         placeholder="Posicion en la empresa"
                                         [(ngModel)]="position"
                                         name="titulo"
+                                        required
                                        >
                                 </div>
                                 <div class="col">
@@ -25,11 +26,12 @@
                                         placeholder="Descripcion de tu trabajo"
                                         [(ngModel)]="descripcion"
                                         name="descripcion"
+                                        required
                                         >
                                 </div>
                                 <div class="col">
                                     <select (ngModelChange)="onSelected($event)"  class="form-control" id="field_answer" name="field_answer" [ngModel]="selectedItem">
-                                        <option [ngValue]="company.id" *ngFor="let company of companies">{{company.id}} {{company.company}}</option>
+                                        <option required [ngValue]="company.id" *ngFor="let company of companies">{{company.id}} {{company.company}}</option>
                                     </select> 
                                 </div>
                                 <div class="dates row">
@@ -37,18 +39,20 @@
                                         <label for="birthday">Desde: </label>
                                         <input type="date" id="birthday" name="birthday"
                                         [(ngModel)]="since"
+                                        required
                                         >
                                     </div>
                                     <div class="form-group col">
                                         <label for="birthday">Hasta:</label>
                                         <input type="date" id="birthday" name="birthday"
                                         [(ngModel)]="until"
+                                        required
                                         >
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row button w-25 mx-1 my-2">
-                                <button class="btn btn-success btn-user py-3">Añadir informacion</button>
+                                <button [disabled]="!f.valid" class="btn btn-success btn-user py-3">Añadir informacion</button>
                             </div>
                         </form> 
                     </div>
