@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'editProjects/:id', loadChildren: () => import('./edit-projects/edit-projects.module').then(m => m.EditProjectsModule) },
   { path: 'addProjects', loadChildren: () => import('./add-projects/add-projects.module').then(m => m.AddProjectsModule) },
   { path: 'editUser/:id', loadChildren: () => import('./edit-user/edit-user.module').then(m => m.EditUserModule) },
+  { path: 'editProfilePic/:id', loadChildren: () => import('./edit-profile-pic/edit-profile-pic.module').then(m => m.EditProfilePicModule) },
   
 ];
 

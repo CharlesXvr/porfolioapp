@@ -8,7 +8,8 @@ export class NewUser {
     birthday: Date;
     roles:string[];
     about:string;
-    constructor(nombre: string, apellido: string ,nombreUsuario:string, email: string, password: string, telefono:number, birthday: Date, roles: string[], about:string) {
+    profileUrl: string;
+    constructor(nombre: string, apellido: string ,nombreUsuario:string, email: string, password: string, telefono:number, birthday: Date, roles: string[], about:string, profileUrl: string) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nombreUsuario = nombreUsuario;
@@ -18,5 +19,6 @@ export class NewUser {
         this.birthday = birthday;
         this.roles = roles;
         this.about = about;
+        this.profileUrl = profileUrl;
     }
 }

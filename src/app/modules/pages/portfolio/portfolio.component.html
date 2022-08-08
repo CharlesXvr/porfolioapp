@@ -9,9 +9,11 @@
 
         <div class="user-info">
             <div class="user-icon">
-                <img 
-                src="https://t3.ftcdn.net/jpg/05/05/59/94/360_F_505599409_kpP9a01lXkN7XR3anYaHSFVFzEP1E7fn.jpg" 
-                alt="">
+                <a routerLink="editProfilePic/{{currentUser.id}}">
+                    <img class="edit-url" src="https://cdn.icon-icons.com/icons2/841/PNG/512/flat-style-circle-edit_icon-icons.com_66939.png" alt="">
+                </a>
+                <img [src]="currentUser.profileUrl" alt="" srcset="">
+
             </div>
             <div class="info">
                 <div class="personal-info p-2">

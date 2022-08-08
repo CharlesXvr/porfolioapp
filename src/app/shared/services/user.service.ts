@@ -23,6 +23,9 @@ export class UserService {
   updateUser(id:number,user:Users) : Observable<Object>{
      return this.httpClient.put(this.baseUrl + `update/${id}`, user);
    }
+   updateProfilePic(id:number,user:Users) : Observable<Object>{
+    return this.httpClient.put(this.baseUrl + `updateImg/${id}`, user);
+  }
    getUserById(id:number):Observable<Users>{
      return this.httpClient.get<Users>(this.baseUrl + `list/${id}`);
    }

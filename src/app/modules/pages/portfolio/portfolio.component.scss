@@ -29,6 +29,23 @@ button {
 }
 .user-icon {
     border-radius: 2rem !important;
+    position: relative;
+    width: 16rem;
+}
+.user-icon .edit-url {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 13rem;
+    width: 3rem;
+    height: 3rem !important;
+    transition: visibility 0s, opacity .1s ease-in-out;
+
+}
+.user-icon:hover .edit-url {
+    visibility: visible;
+    opacity: 1;
+
 }
 .user-info .user-icon img {
     max-width: 16rem;

@@ -9,4 +9,5 @@ export class Users {
     birthday:Date;
     roles:string[];
     about:string;
+    profileUrl: string;
 }
