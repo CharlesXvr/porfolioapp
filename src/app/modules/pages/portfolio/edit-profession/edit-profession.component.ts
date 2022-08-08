@@ -43,7 +43,7 @@ export class EditProfessionComponent implements OnInit {
     };
     this.professionService.update(id, professions).subscribe(
       data => {
-        this.toastr.success('Producto Actualizado', 'OK', {
+        this.toastr.success('Item Actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/portfolio']);

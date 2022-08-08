@@ -39,7 +39,7 @@ export class AddProfessionComponent implements OnInit {
     company.company = this.company;
     this.professionService.addCompany(company).subscribe(
       data => {
-        this.toastr.success('Producto Creado', 'OK', {
+        this.toastr.success('Item Creado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/']);
