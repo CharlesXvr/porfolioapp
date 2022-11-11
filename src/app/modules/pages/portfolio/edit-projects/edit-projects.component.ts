@@ -11,6 +11,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-projects.component.scss']
 })
 export class EditProjectsComponent implements OnInit {
+  id = this.activatedRoute.snapshot.params['id'];
+  currentInfo;
   projectName = '';
   descripcion = '';
   repositoryUrl = '';
@@ -19,10 +21,16 @@ export class EditProjectsComponent implements OnInit {
   constructor(private projectsService : ProjectsService, private toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    this.getInfo();
   }
- 
+  getInfo() {
+    this.projectsService.detail(this.id)
+    .subscribe(items => {
+      this.currentInfo = items
+      console.log(this.currentInfo)
+    })
+  }
   onUpdate(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
     const projects = new Projects();
     projects.projectName = this.projectName;
     projects.description = this.descripcion;
@@ -30,7 +38,7 @@ export class EditProjectsComponent implements OnInit {
     projects.usuario = {
       id: this.user
     };
-    this.projectsService.update(id, projects).subscribe(
+    this.projectsService.update(this.id, projects).subscribe(
       data => {
         this.toastr.success('Item Actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
@@ -38,7 +46,7 @@ export class EditProjectsComponent implements OnInit {
         this.router.navigate(['/portfolio']);
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+        this.toastr.error(err.error.mensaje, 'Error', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
         // this.router.navigate(['/']);

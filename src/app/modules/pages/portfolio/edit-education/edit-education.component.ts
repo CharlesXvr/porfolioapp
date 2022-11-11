@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InstitutosEd } from '@app/shared/models/institutos-ed';
 import { UserInstitutes } from '@app/shared/models/user-institutes';
 import { EducationServiceService } from '@app/shared/services/education-service.service';
 import { ToastrService } from 'ngx-toastr';
@@ -11,6 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-education.component.scss']
 })
 export class EditEducationComponent implements OnInit {
+  id = this.activatedRoute.snapshot.params['id'];
+  currentInfo;
   titulo = '';
   descripcion = '';
   userInfo = JSON.parse(sessionStorage.getItem('user')!);
@@ -24,9 +25,8 @@ export class EditEducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInstitutes();
-
-    const id = this.activatedRoute.snapshot.params['id'];
-    this.userInstituteService.detail(id).subscribe(
+    this.getInfo();
+    this.userInstituteService.detail(this.id).subscribe(
       data => {
         this.userInstitutes = data;
       },
@@ -37,7 +37,12 @@ export class EditEducationComponent implements OnInit {
       }
     );
   }
- 
+  getInfo() {
+    this.userInstituteService.detail(this.id)
+    .subscribe(items => {
+      this.currentInfo = items
+    })
+  }
   onSelected(id:number): void {
 		this.selectedItem = id; 
     console.log(this.selectedItem);
@@ -55,7 +60,7 @@ export class EditEducationComponent implements OnInit {
     };
     this.userInstituteService.update(id, userInstitute).subscribe(
       data => {
-        this.toastr.success('Item Actualizado', 'OK', {
+        this.toastr.success('Producto Actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/portfolio']);
@@ -68,7 +73,6 @@ export class EditEducationComponent implements OnInit {
       }
     );
   }
-
   getInstitutes() {
     this.userInstituteService.getInstitute()
     .subscribe(items => {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Professions } from '@app/shared/models/professions';
-import { EducationServiceService } from '@app/shared/services/education-service.service';
 import { ProfessionService } from '@app/shared/services/profession.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-profession.component.scss']
 })
 export class EditProfessionComponent implements OnInit {
-
+  id = this.activatedRoute.snapshot.params['id'];
+  currentInfo;
   position = '';
   descripcion = '';
   userInfo = JSON.parse(sessionStorage.getItem('user')!);
@@ -24,6 +24,7 @@ export class EditProfessionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCompanies();
+    this.getInfo();
   }
  
   onSelected(id:number): void {
@@ -31,7 +32,6 @@ export class EditProfessionComponent implements OnInit {
     console.log(this.selectedItem);
   }
   onUpdate(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
     const professions = new Professions();
     professions.position = this.position;
     professions.description = this.descripcion;
@@ -41,7 +41,9 @@ export class EditProfessionComponent implements OnInit {
     professions.company =  {
       id: this.selectedItem
     };
-    this.professionService.update(id, professions).subscribe(
+    professions.since = this.since;
+    professions.until = this.until;
+    this.professionService.update(this.id, professions).subscribe(
       data => {
         this.toastr.success('Item Actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
@@ -56,7 +58,12 @@ export class EditProfessionComponent implements OnInit {
       }
     );
   }
-
+  getInfo() {
+    this.professionService.detail(this.id)
+    .subscribe(items => {
+      this.currentInfo = items
+    })
+  }
   getCompanies() {
     this.professionService.getCompanies()
     .subscribe(items => {
