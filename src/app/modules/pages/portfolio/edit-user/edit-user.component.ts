@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent implements OnInit {
-
+  id = this.activatedRoute.snapshot.params['id'];
+  currentInfo;
   nombre = '';
   apellido = '';
   about = '';
@@ -20,16 +21,16 @@ export class EditUserComponent implements OnInit {
   constructor(private userService : UserService ,private toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    this.getInfo();
   }
  
   onUpdate(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
     const currentUserInfo = new Users()
     currentUserInfo.nombre = this.nombre;
     currentUserInfo.apellido = this.apellido;
     currentUserInfo.about = this.about;
     currentUserInfo.birthday = this.birthday;
-    this.userService.updateUser(id, currentUserInfo).subscribe(
+    this.userService.updateUser(this.id, currentUserInfo).subscribe(
       data => {
         this.toastr.success('Usuario Actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
@@ -43,5 +44,11 @@ export class EditUserComponent implements OnInit {
         // this.router.navigate(['/']);
       }
     );
+  }
+  getInfo() {
+    this.userService.getUserById(this.id)
+    .subscribe(items => {
+      this.currentInfo = items
+    })
   }
 }
